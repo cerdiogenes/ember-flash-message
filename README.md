@@ -4,12 +4,14 @@ A simple plugin that allows you to display a message on the next route
 transition, similiar to Rails' ``flash[:notice]``. This is useful for
 displaying one time notices on later pages.
 
+A (soon to be gem) allowing display of messages upon route transition similar to Rails' flast[:notice] in a trivial manner written in CoffeeScript. The applications should be obvious. 
+
 ## Usage
 
 You should include
 [ember-flash-message.js](https://raw.github.com/ryanto/ember-flash-message/master/flash-message.js) on your page. Since this
 plugin depends on Ember.js you will have to include Ember first. Now any
-of your route's will have access to ``flashMessage(message)``, which
+of your route's will have access to ``@flashMessage(message)``, which
 will set the message.
 
 ### Template
