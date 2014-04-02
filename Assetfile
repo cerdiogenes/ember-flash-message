@@ -1,17 +1,14 @@
+require "rake-pipeline-web-filters"
+
 mode = ENV['RAKEP_MODE'] || 'development'
 
 output "compiled"
 
 input "lib" do
 
-  match "**/*.js" do
-    filter(
-      Rake::Pipeline::OrderingConcatFilter,
-      [
-        "main.js"
-      ],
-      "flash-message.js"
-    )
+  match "**/*.coffee" do
+    coffee_script
+    concat "flash-message.js"
   end
 end
 
@@ -41,7 +38,8 @@ input "tests" do
     copy
   end
 
-  match "**/*_test.js" do
-    filter Rake::Pipeline::OrderingConcatFilter, [], "tests.js"
+  match "**/*_test.coffee" do
+    coffee_script
+    concat "tests.js"
   end
 end
